@@ -1,12 +1,18 @@
 .mainFab::part(native){
-    background-color: darkblue;
+    background-color: #29ABE1;
     position: fixed;
     box-shadow: 1px 1px 10px black;
 }
 
 .secondaryFab::part(native){
-    color: darkblue;
+    color: #29ABE1;
 }
+
+//#videoBG{
+   // position: fixed;
+   // height: 100lvh;
+   // z-index: -1;
+//}
 
 ion-content::part(background){
     background-image: url("../../assets/bg.png");
@@ -17,13 +23,48 @@ ion-content::part(background){
 
 .logo{
     position: fixed;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
-    border-radius: 100%;
+    width: 50%;
 }
 
+.mainText1{
+    position: fixed;
+    margin-top: 60lvh;
+    color: white;
+    font-weight: 600;
+    font-size: 60px;
+    margin-left: 5%;
+}
+
+.mainText2{
+    position: fixed;
+    color: white;
+    font-weight: 600;
+    font-size: 60px;
+    margin-top: 67lvh;
+    margin-left: 5%;
+}
+
+.mainText3{
+    position: fixed;
+    color: white;
+    font-weight: 600;
+    font-size: 60px;
+    margin-top: 74lvh;
+    margin-left: 5%;
+}
+
+.mainText4{
+    position: fixed;
+    color: white;
+    font-weight: 600;
+    font-size: 60px;
+    margin-top: 81lvh;
+    margin-left: 5%;
+}
 
 .mainContents{
     width: 100%;
