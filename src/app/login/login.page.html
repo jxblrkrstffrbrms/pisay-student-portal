@@ -24,10 +24,22 @@
   
     <ion-card-content>
       <ion-item>
-        <ion-input label="Student Number" labelPlacement="floating" placeholder="Type here"></ion-input>
+        <ion-input 
+          label="Email" 
+          labelPlacement="floating" 
+          placeholder="Enter your email"
+          type="email"
+          [(ngModel)]="email"
+          name="email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input label="Password" labelPlacement="floating" placeholder="Type here" type="password"></ion-input>
+        <ion-input 
+          label="Password" 
+          labelPlacement="floating" 
+          placeholder="Enter your password" 
+          type="password"
+          [(ngModel)]="password"
+          name="password"></ion-input>
       </ion-item>
       <ion-grid>
       <ion-row>
