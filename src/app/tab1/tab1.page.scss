@@ -21,6 +21,32 @@ ion-content::part(background){
     background-size: cover;
 }
 
+.header{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 5%;
+    margin-bottom: 0;
+}
+
+.header2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: 5%;
+    margin-top: 0%;
+    color: #29ABE1;
+}
+.header3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 1000;
+    font-size: 30px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #29ABE1;
+}
+
 .logo{
     position: fixed;
     top: 30%;
@@ -67,7 +93,7 @@ ion-content::part(background){
 }
 
 .mainContents {
-    height: 100lvh;
+    height: 125lvh;
     width: 100%;
     margin-top: 100lvh;
     margin-left: 0;
@@ -90,6 +116,8 @@ ion-card-title {
 
 ion-card-content{
     padding: 15px;
+    padding-top: 10%;
+    padding-bottom: 10%;
     color: black;
 }
 
@@ -99,9 +127,90 @@ ion-list {
 
 ion-item {
     --background: transparent;
-    margin: 5px 0;
+    margin-bottom: 10px;
 }
 
 .info-card{
     border-radius: 20px;
+    margin-top: 0px;
+}
+
+.activities-card {
+    margin: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.activities-card ion-list {
+    background: transparent;
+    padding: 0;
+}
+
+.activities-card ion-item {
+    --background: white;
+    margin: 8px 0;
+    border-radius: 12px;
+    --padding-start: 16px;
+    --inner-padding-end: 16px;
+}
+
+.activities-card ion-item.completed {
+    --background: #f8f8f8;
+    opacity: 0.8;
+}
+
+.activities-card ion-item.completed h2 {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.activities-card ion-item h2 {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.activities-card ion-item p {
+    color: #666;
+    margin: 4px 0;
+    font-size: 0.9em;
+}
+
+.activities-card .due-date {
+    display: flex;
+    align-items: center;
+    color: #29ABE1;
+    font-size: 0.85em;
+    margin-top: 8px;
+
+    ion-icon {
+        margin-right: 4px;
+    }
+}
+
+.activities-card ion-checkbox {
+    --checkbox-background-checked: #29ABE1;
+    --border-color-checked: #29ABE1;
+    --checkmark-color: white;
+}
+
+.activities-card .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+
+    ion-icon {
+        font-size: 32px;
+        margin-bottom: 12px;
+        color: #29ABE1;
+    }
+
+    p {
+        font-size: 1em;
+        margin: 0;
+    }
 }

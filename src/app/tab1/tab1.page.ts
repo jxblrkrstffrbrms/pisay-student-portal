@@ -1,11 +1,13 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonFab, IonFabButton, IonFabList, 
-  IonIcon, IonGrid, IonCol, IonRow, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
+  IonIcon, IonGrid, IonCol, IonRow, IonDatetime, IonDatetimeButton, IonItemSliding, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel, IonCheckbox } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { globeOutline, logoFacebook, helpCircleOutline, bulbOutline, eyeOutline, 
   starOutline, trophyOutline, shieldCheckmarkOutline, peopleOutline, 
-  sparklesOutline, megaphoneOutline, notificationsOutline, add } from 'ionicons/icons';
+  sparklesOutline, megaphoneOutline, notificationsOutline, add, trash, calendarOutline, listOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface Announcement {
     title: string;
@@ -13,21 +15,38 @@ interface Announcement {
     description: string;
 }
 
+interface Activity {
+    id: string;
+    title: string;
+    description: string;
+    datetime: string;
+    isCompleted: boolean;
+}
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonFab, IonFabButton, 
+  imports: [CommonModule, FormsModule, IonHeader, IonToolbar, IonDatetime, IonDatetimeButton, IonTitle, IonContent, IonFab, IonFabButton, 
     IonFabList, IonIcon, ExploreContainerComponent, IonGrid, IonCol, IonRow, 
-    IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel],
+    IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel, IonItemSliding, IonCheckbox],
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
   isScrolled = false;
   cardsVisible = false;
+  activities: Activity[] = [];
 
   constructor() {
-    addIcons({add,notificationsOutline,megaphoneOutline,globeOutline,logoFacebook,helpCircleOutline,bulbOutline,eyeOutline,starOutline,trophyOutline,shieldCheckmarkOutline,peopleOutline,sparklesOutline});
+    addIcons({helpCircleOutline,logoFacebook,globeOutline,calendarOutline,listOutline,shieldCheckmarkOutline,trophyOutline,peopleOutline,trash,add,notificationsOutline,megaphoneOutline,bulbOutline,eyeOutline,starOutline,sparklesOutline});
+  }
+
+  ngOnInit() {
+    // Load activities from localStorage
+    const savedActivities = localStorage.getItem('activities');
+    if (savedActivities) {
+      this.activities = JSON.parse(savedActivities);
+    }
   }
 
   @HostListener('window:scroll', ['$event'])
